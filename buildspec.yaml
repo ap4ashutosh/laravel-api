@@ -22,7 +22,7 @@ phases:
       - cp .env.prod .env
       - docker build -t $IMAGE .
       - docker tag $IMAGE:$IMAGE_TAG $REPOSITORY/$IMAGE:$IMAGE_TAG
-
+      - docker push $REPOSITORY/$IMAGE:$IMAGE_TAG
   post_build:
     on-failure: ABORT
     commands:
